@@ -44,7 +44,7 @@ class MainView: UIView {
     private var songsTitle: UILabel = .makeLabel(Settings.songsTitle, font: .systemFont(ofSize: 14, weight: .semibold), textColor: .lightGray)
     
     //MARK: - TIMER -
-    private let timer: UIView = {
+    let timerView: UIView = {
         let container = UIView()
         container.backgroundColor = .white
         container.layer.cornerRadius = 5
@@ -119,8 +119,8 @@ class MainView: UIView {
             make.width.equalToSuperview().multipliedBy(Settings.contentWidthModifier)
         }
         
-        contentContainer.addSubview(timer)
-        timer.snp.makeConstraints { make in
+        contentContainer.addSubview(timerView)
+        timerView.snp.makeConstraints { make in
             make.top.greaterThanOrEqualTo(customerTitle.snp.bottom).offset(20)
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
@@ -130,7 +130,7 @@ class MainView: UIView {
         
         contentContainer.addSubview(songsTitle)
         songsTitle.snp.makeConstraints { make in
-            make.top.greaterThanOrEqualTo(timer.snp.bottom).offset(16)
+            make.top.greaterThanOrEqualTo(timerView.snp.bottom).offset(16)
             make.centerX.equalToSuperview()
             make.width.equalToSuperview().multipliedBy(Settings.contentWidthModifier)
         }
@@ -150,6 +150,15 @@ class MainView: UIView {
             make.width.equalToSuperview().multipliedBy(Settings.contentWidthModifier/2)
         }
         
+    }
+}
+
+extension UIView {
+    func addChildSubviewByPinningEdges(_ view: UIView) {
+        self.addSubview(view)
+        view.snp.makeConstraints { make in
+            make.top.bottom.leading.trailing.equalToSuperview()
+        }
     }
 }
 
