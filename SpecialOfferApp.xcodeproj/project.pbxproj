@@ -16,6 +16,8 @@
 		FA1029572875B6D00090DF04 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FA1029562875B6D00090DF04 /* SnapKit */; };
 		FA4928732876BCEE009BB36B /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4928722876BCEE009BB36B /* TimerViewController.swift */; };
 		FA4928762876C17B009BB36B /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4928752876C17B009BB36B /* TimerView.swift */; };
+		FA4928792876E83E009BB36B /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4928782876E83E009BB36B /* ModalView.swift */; };
+		FA49287D2877077F009BB36B /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA49287C2877077F009BB36B /* ModalViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,8 @@
 		FA1029532875B5EE0090DF04 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		FA4928722876BCEE009BB36B /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		FA4928752876C17B009BB36B /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		FA4928782876E83E009BB36B /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
+		FA49287C2877077F009BB36B /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,7 @@
 				FA1029512875B4640090DF04 /* Source */,
 				FA1029502875B4150090DF04 /* Core */,
 				FA4928742876BFD7009BB36B /* Timer */,
+				FA4928772876E638009BB36B /* Modal */,
 			);
 			path = SpecialOfferApp;
 			sourceTree = "<group>";
@@ -105,6 +110,15 @@
 				FA4928752876C17B009BB36B /* TimerView.swift */,
 			);
 			path = Timer;
+			sourceTree = "<group>";
+		};
+		FA4928772876E638009BB36B /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				FA49287C2877077F009BB36B /* ModalViewController.swift */,
+				FA4928782876E83E009BB36B /* ModalView.swift */,
+			);
+			path = Modal;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,10 +197,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA49287D2877077F009BB36B /* ModalViewController.swift in Sources */,
 				FA4928732876BCEE009BB36B /* TimerViewController.swift in Sources */,
 				FA1029542875B5EE0090DF04 /* MainView.swift in Sources */,
 				FA4928762876C17B009BB36B /* TimerView.swift in Sources */,
 				FA1029382875AE2A0090DF04 /* MainViewController.swift in Sources */,
+				FA4928792876E83E009BB36B /* ModalView.swift in Sources */,
 				FA1029342875AE2A0090DF04 /* AppDelegate.swift in Sources */,
 				FA1029362875AE2A0090DF04 /* SceneDelegate.swift in Sources */,
 			);

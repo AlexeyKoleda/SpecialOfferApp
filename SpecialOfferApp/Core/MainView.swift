@@ -22,6 +22,8 @@ class MainView: UIView {
     
     }
     
+    var didTapActivateButton: ((RemainingTime) -> Void)?
+    
     private lazy var backgroundImage: UIImageView = {
         let backgroundImage = UIImageView()
         backgroundImage.contentMode = .scaleAspectFit
@@ -44,13 +46,7 @@ class MainView: UIView {
     private var songsTitle: UILabel = .makeLabel(Settings.songsTitle, font: .systemFont(ofSize: 14, weight: .semibold), textColor: .lightGray)
     
     //MARK: - TIMER -
-    let timerView: UIView = {
-        let container = UIView()
-        container.backgroundColor = .white
-        container.layer.cornerRadius = 5
-        return container
-    }()
-    
+    let timerView = UIView()
 
     //MARK: - BUTTON -
     let activateOfferButton: UIButton = {
@@ -69,8 +65,9 @@ class MainView: UIView {
     private var restoreButton: UIButton = .makeSystemBytton(Settings.restoreTitle, font: .systemFont(ofSize: 10, weight: .regular))
     private var termsButton: UIButton = .makeSystemBytton(Settings.termsTitle, font: .systemFont(ofSize: 10, weight: .regular))
     private lazy var stackView: UIStackView = .makeStackView([privacyButton, restoreButton, termsButton], spacing: 5, axis: .horizontal)
-
     
+    
+    //MARK: - LAYOUT -
     func setupView() {
         setupImageView()
         setupContentContainerView()
@@ -149,7 +146,6 @@ class MainView: UIView {
             make.bottom.equalToSuperview().inset(30)
             make.width.equalToSuperview().multipliedBy(Settings.contentWidthModifier/2)
         }
-        
     }
 }
 
