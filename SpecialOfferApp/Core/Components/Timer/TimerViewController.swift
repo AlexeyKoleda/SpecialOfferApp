@@ -6,7 +6,7 @@ class TimerViewController: UIViewController {
     override func loadView() { self.view = customView }
     
     var timer: Timer = Timer()
-    var count: Int = 86400
+    var seconds: Int = 86400
     var timerCounting: Bool = false
     
     override func viewDidLoad() {
@@ -24,8 +24,8 @@ class TimerViewController: UIViewController {
     }
 
     @objc func timerCounter() -> Void {
-        count = count - 1
-        let time = secondsToHoursMinutesSeconds(seconds: count)
+        seconds = seconds - 1
+        let time = getCountdown(for: seconds)
         
         customView.days.text = String(format: "%02d", time.days)
         customView.hours.text = String(format: "%02d", time.hours)
@@ -33,13 +33,23 @@ class TimerViewController: UIViewController {
         customView.seconds.text = String(format: "%02d", time.seconds)
     }
     
-    func secondsToHoursMinutesSeconds(seconds: Int) -> (days: Int, hours: Int, minutes: Int, seconds: Int) {
+    func getCountdown(for: Int) -> (days: Int, hours: Int, minutes: Int, seconds: Int) {
         return (
             ((seconds / 3600) / 24),
             (seconds / 3600),
             ((seconds % 3600) / 60),
             ((seconds % 3600) % 60)
         )
+    }
+    
+    func getCurrentCountdown() -> RemainingTime {
+        let remainingTime = RemainingTime(
+            days: customView.days.text ?? String(),
+            hours: customView.hours.text ?? String(),
+            minutes: customView.minutes.text ?? String(),
+            seconds: customView.seconds.text ?? String()
+        )
+        return remainingTime
     }
 
 }

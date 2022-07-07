@@ -31,9 +31,9 @@ class TimerView: UIView {
         [days, firstDivider, hours, secondDivider, minutes, thirdDivider, seconds],
         spacing: 5,
         axis: .horizontal,
-//        alignment: .center,
         distribution: .fill)
     
+    //MARK: - LAYOUT -
     func setupView() {
         setupContentContainerView()
     }

@@ -1,9 +1,7 @@
 import UIKit
 import SnapKit
 
-struct RemainingTime {
-    var days, hours, minutes, seconds: String
-}
+
 
 final class ModalView: UIView {
     

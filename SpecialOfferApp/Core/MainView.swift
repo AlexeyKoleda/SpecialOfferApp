@@ -9,17 +9,15 @@ class MainView: UIView {
         static let discountTitle = "90% OFF"
         static let customerTitle = "for true music fans"
         static let songsTitle = "Hundreds of songs in your pocket"
-        
         static let privacyTitle = "Privacy"
         static let restoreTitle = "Restore"
         static let termsTitle = "Terms"
-        static let activateOfferTitle = "ActivateOffer"
+        static let activateOfferTitle = "ACTIVATE OFFER"
         
         static let backgrounImage = "music"
         
-        static let halfModifier: CGFloat = 0.5
-        static let contentWidthModifier: CGFloat = 0.7
-    
+        static let halfMultiplier: CGFloat = 0.5
+        static let contentWidthMultiplier: CGFloat = 0.7
     }
     
     var didTapActivateButton: ((RemainingTime) -> Void)?
@@ -49,14 +47,14 @@ class MainView: UIView {
     let timerView = UIView()
 
     //MARK: - BUTTON -
-    let activateOfferButton: UIButton = {
-        let button = UIButton(type: .custom)
+    let activateOfferButton: GradientButton = {
+        let button = GradientButton(frame: CGRect(x: 0, y: 0, width: 0, height: 60))
+        button.addShadow(shadowColor: UIColor(named: "PinkColor")!.cgColor, shadowOffset: CGSize(width: 0, height: 0), shadowOpacity: 20, shadowRadius: 20)
         button.setTitle(Settings.activateOfferTitle, for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 15, weight: .semibold)
+        
         button.setTitleColor(UIColor.white, for: .normal)
-        button.backgroundColor = UIColor.red
-        button.layer.cornerRadius = 12
-        button.contentHorizontalAlignment = .center
+        button.titleLabel?.font = .systemFont(ofSize: 15, weight: .semibold)
+        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
@@ -77,7 +75,7 @@ class MainView: UIView {
         self.addSubview(backgroundImage)
         backgroundImage.snp.makeConstraints { make in
             make.top.bottom.leading.equalToSuperview()
-            make.width.equalToSuperview().multipliedBy(Settings.halfModifier)
+            make.width.equalToSuperview().multipliedBy(Settings.halfMultiplier)
         }
     }
     
@@ -85,35 +83,35 @@ class MainView: UIView {
         addSubview(contentContainer)
         contentContainer.snp.makeConstraints { make in
             make.top.bottom.trailing.equalToSuperview()
-            make.width.equalToSuperview().multipliedBy(Settings.halfModifier)
+            make.width.equalToSuperview().multipliedBy(Settings.halfMultiplier)
         }
 
         contentContainer.addSubview(firstTitle)
         firstTitle.snp.makeConstraints { make in
-//            make.top.equalToSuperview()
+            make.top.greaterThanOrEqualTo(contentContainer)
             make.centerX.equalToSuperview()
-            make.width.equalToSuperview().multipliedBy(Settings.contentWidthModifier)
+            make.width.equalToSuperview().multipliedBy(Settings.contentWidthMultiplier)
         }
 
         contentContainer.addSubview(secondTitle)
         secondTitle.snp.makeConstraints { make in
             make.top.equalTo(firstTitle.snp.bottom)
             make.centerX.equalToSuperview()
-            make.width.equalToSuperview().multipliedBy(Settings.contentWidthModifier)
+            make.width.equalToSuperview().multipliedBy(Settings.contentWidthMultiplier)
         }
 
         contentContainer.addSubview(discountTitle)
         discountTitle.snp.makeConstraints { make in
             make.top.greaterThanOrEqualTo(secondTitle.snp.bottom).offset(12)
             make.centerX.equalToSuperview()
-            make.width.equalToSuperview().multipliedBy(Settings.contentWidthModifier)
+            make.width.equalToSuperview().multipliedBy(Settings.contentWidthMultiplier)
         }
 
         contentContainer.addSubview(customerTitle)
         customerTitle.snp.makeConstraints { make in
             make.top.greaterThanOrEqualTo(discountTitle.snp.bottom).offset(8)
             make.centerX.equalToSuperview()
-            make.width.equalToSuperview().multipliedBy(Settings.contentWidthModifier)
+            make.width.equalToSuperview().multipliedBy(Settings.contentWidthMultiplier)
         }
         
         contentContainer.addSubview(timerView)
@@ -122,14 +120,14 @@ class MainView: UIView {
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
             make.height.equalTo(41)
-            make.width.equalToSuperview().multipliedBy(Settings.contentWidthModifier)
+            make.width.equalToSuperview().multipliedBy(Settings.contentWidthMultiplier)
         }
         
         contentContainer.addSubview(songsTitle)
         songsTitle.snp.makeConstraints { make in
             make.top.greaterThanOrEqualTo(timerView.snp.bottom).offset(16)
             make.centerX.equalToSuperview()
-            make.width.equalToSuperview().multipliedBy(Settings.contentWidthModifier)
+            make.width.equalToSuperview().multipliedBy(Settings.contentWidthMultiplier)
         }
         
         contentContainer.addSubview(activateOfferButton)
@@ -144,7 +142,7 @@ class MainView: UIView {
         stackView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.bottom.equalToSuperview().inset(30)
-            make.width.equalToSuperview().multipliedBy(Settings.contentWidthModifier/2)
+            make.width.equalToSuperview().multipliedBy(Settings.contentWidthMultiplier/2)
         }
     }
 }
