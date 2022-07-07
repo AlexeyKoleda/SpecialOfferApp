@@ -48,7 +48,6 @@ final class TimerView: UIView {
         segments.forEach { label in
             label.snp.makeConstraints { make in
                 make.width.equalTo(25.scalable())
-                make.height.equalTo(15.scalable())
             }
         }
     }
