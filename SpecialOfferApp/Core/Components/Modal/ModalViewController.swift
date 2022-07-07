@@ -1,6 +1,6 @@
 import UIKit
 
-class ModalViewController: UIViewController {
+final class ModalViewController: UIViewController {
 
     private let customView = ModalView()
     override func loadView() { self.view = customView }

@@ -1,8 +1,6 @@
 import UIKit
 import SnapKit
 
-
-
 final class ModalView: UIView {
     
     struct Settings {
@@ -30,7 +28,7 @@ final class ModalView: UIView {
         let label = UILabel()
         label.text = Settings.titleText
         label.textColor = UIColor.white
-        label.font = .systemFont(ofSize: 30, weight: UIFont.Weight.bold)
+        label.font = .systemFont(ofSize: 25.scalable(), weight: UIFont.Weight.bold)
         label.textAlignment = .center
         label.addShadow(
             shadowColor: UIColor.white.cgColor,
@@ -44,7 +42,7 @@ final class ModalView: UIView {
     let messageLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.white
-        label.font = .systemFont(ofSize: 15, weight: UIFont.Weight.regular)
+        label.font = .systemFont(ofSize: 10.scalable(), weight: UIFont.Weight.regular)
         label.textAlignment = .center
         return label
     }()
@@ -64,8 +62,8 @@ extension ModalView {
         targetView.addSubview(modalView)
         modalView.snp.makeConstraints { make in
             make.center.equalTo(contentContainer.center)
-            make.width.equalTo(160)
-            make.height.equalTo(80)
+            make.width.equalTo(160.scalable())
+            make.height.equalTo(80.scalable())
         }
         
         setTextWithRemainingTime(time)
@@ -74,38 +72,13 @@ extension ModalView {
         titleLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview().multipliedBy(0.7)
             make.width.equalToSuperview()
-            make.height.equalTo(25)
+            make.height.equalTo(25.scalable())
         }
         
         messageLabel.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom)
             make.width.equalToSuperview()
-            make.height.equalTo(20)
+            make.height.equalTo(20.scalable())
         }
-       
-        
- 
-    }
-}
-
-
-extension UIView {
-    func addSubviews(_ views: [UIView]) {
-        views.forEach {
-            addSubview($0)
-        }
-    }
-    
-    func addShadow(
-        shadowColor: CGColor,
-        shadowOffset: CGSize,
-        shadowOpacity: Float,
-        shadowRadius: CGFloat
-    ) {
-        layer.shadowColor = shadowColor
-        layer.shadowOffset = shadowOffset
-        layer.shadowOpacity = shadowOpacity
-        layer.shadowRadius = shadowRadius
-        layer.masksToBounds = false
     }
 }

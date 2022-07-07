@@ -14,12 +14,18 @@
 		FA1029402875AE2E0090DF04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA10293E2875AE2E0090DF04 /* LaunchScreen.storyboard */; };
 		FA1029542875B5EE0090DF04 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1029532875B5EE0090DF04 /* MainView.swift */; };
 		FA1029572875B6D00090DF04 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FA1029562875B6D00090DF04 /* SnapKit */; };
+		FA15813F28774E99003B86CB /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA15813E28774E99003B86CB /* UILabel.swift */; };
+		FA15814128774EAF003B86CB /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA15814028774EAF003B86CB /* UIStackView.swift */; };
+		FA484448287747AB00C9F0DE /* TimerSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA484447287747AB00C9F0DE /* TimerSegment.swift */; };
 		FA4928732876BCEE009BB36B /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4928722876BCEE009BB36B /* TimerViewController.swift */; };
 		FA4928762876C17B009BB36B /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4928752876C17B009BB36B /* TimerView.swift */; };
 		FA4928792876E83E009BB36B /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4928782876E83E009BB36B /* ModalView.swift */; };
 		FA49287D2877077F009BB36B /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA49287C2877077F009BB36B /* ModalViewController.swift */; };
 		FA49288128771EBF009BB36B /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA49288028771EBF009BB36B /* GradientButton.swift */; };
 		FA49288528771FD4009BB36B /* RemainingTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA49288428771FD4009BB36B /* RemainingTime.swift */; };
+		FA492888287720C3009BB36B /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA492887287720C3009BB36B /* Double.swift */; };
+		FA49288A287720E8009BB36B /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA492889287720E8009BB36B /* UIView.swift */; };
+		FA49288C287721D5009BB36B /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA49288B287721D5009BB36B /* UIButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,12 +37,18 @@
 		FA10293F2875AE2E0090DF04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA1029412875AE2E0090DF04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = SpecialOfferApp/Source/Info.plist; sourceTree = SOURCE_ROOT; };
 		FA1029532875B5EE0090DF04 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		FA15813E28774E99003B86CB /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		FA15814028774EAF003B86CB /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
+		FA484447287747AB00C9F0DE /* TimerSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSegment.swift; sourceTree = "<group>"; };
 		FA4928722876BCEE009BB36B /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		FA4928752876C17B009BB36B /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		FA4928782876E83E009BB36B /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
 		FA49287C2877077F009BB36B /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		FA49288028771EBF009BB36B /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
 		FA49288428771FD4009BB36B /* RemainingTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemainingTime.swift; sourceTree = "<group>"; };
+		FA492887287720C3009BB36B /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
+		FA492889287720E8009BB36B /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		FA49288B287721D5009BB36B /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +82,7 @@
 		FA1029322875AE2A0090DF04 /* SpecialOfferApp */ = {
 			isa = PBXGroup;
 			children = (
+				FA492886287720B7009BB36B /* Extension */,
 				FA1029522875B4750090DF04 /* App */,
 				FA1029512875B4640090DF04 /* Source */,
 				FA1029502875B4150090DF04 /* Core */,
@@ -112,6 +125,7 @@
 			children = (
 				FA4928722876BCEE009BB36B /* TimerViewController.swift */,
 				FA4928752876C17B009BB36B /* TimerView.swift */,
+				FA484447287747AB00C9F0DE /* TimerSegment.swift */,
 			);
 			path = Timer;
 			sourceTree = "<group>";
@@ -149,6 +163,18 @@
 				FA49288428771FD4009BB36B /* RemainingTime.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		FA492886287720B7009BB36B /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				FA492887287720C3009BB36B /* Double.swift */,
+				FA492889287720E8009BB36B /* UIView.swift */,
+				FA49288B287721D5009BB36B /* UIButton.swift */,
+				FA15813E28774E99003B86CB /* UILabel.swift */,
+				FA15814028774EAF003B86CB /* UIStackView.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,14 +254,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA49287D2877077F009BB36B /* ModalViewController.swift in Sources */,
+				FA484448287747AB00C9F0DE /* TimerSegment.swift in Sources */,
+				FA49288C287721D5009BB36B /* UIButton.swift in Sources */,
 				FA4928732876BCEE009BB36B /* TimerViewController.swift in Sources */,
 				FA1029542875B5EE0090DF04 /* MainView.swift in Sources */,
 				FA49288528771FD4009BB36B /* RemainingTime.swift in Sources */,
+				FA49288A287720E8009BB36B /* UIView.swift in Sources */,
+				FA15813F28774E99003B86CB /* UILabel.swift in Sources */,
 				FA4928762876C17B009BB36B /* TimerView.swift in Sources */,
 				FA49288128771EBF009BB36B /* GradientButton.swift in Sources */,
 				FA1029382875AE2A0090DF04 /* MainViewController.swift in Sources */,
+				FA15814128774EAF003B86CB /* UIStackView.swift in Sources */,
 				FA4928792876E83E009BB36B /* ModalView.swift in Sources */,
 				FA1029342875AE2A0090DF04 /* AppDelegate.swift in Sources */,
+				FA492888287720C3009BB36B /* Double.swift in Sources */,
 				FA1029362875AE2A0090DF04 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
