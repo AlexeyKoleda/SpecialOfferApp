@@ -96,7 +96,6 @@ final class MainView: UIView {
 
         contentContainer.addSubview(firstTitle)
         firstTitle.snp.makeConstraints { make in
-            make.top.greaterThanOrEqualTo(contentContainer)
             make.centerX.equalToSuperview()
             make.width.equalToSuperview().multipliedBy(Settings.contentWidthMultiplier)
         }
@@ -110,37 +109,37 @@ final class MainView: UIView {
 
         contentContainer.addSubview(discountTitle)
         discountTitle.snp.makeConstraints { make in
-            make.top.greaterThanOrEqualTo(secondTitle.snp.bottom).offset(6.scalable())
+            make.top.equalTo(secondTitle.snp.bottom).offset(5.scalable())
             make.centerX.equalToSuperview()
             make.width.equalToSuperview().multipliedBy(Settings.contentWidthMultiplier)
         }
 
         contentContainer.addSubview(customerTitle)
         customerTitle.snp.makeConstraints { make in
-            make.top.greaterThanOrEqualTo(discountTitle.snp.bottom).offset(4.scalable())
+            make.top.equalTo(discountTitle.snp.bottom).offset(4.scalable())
             make.centerX.equalToSuperview()
             make.width.equalToSuperview().multipliedBy(Settings.contentWidthMultiplier)
         }
         
         contentContainer.addSubview(timerView)
         timerView.snp.makeConstraints { make in
-            make.top.greaterThanOrEqualTo(customerTitle.snp.bottom).offset(6.scalable())
+            make.top.equalTo(customerTitle.snp.bottom).offset(5.scalable())
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
-            make.height.equalTo(41)
+            make.height.equalTo(15.scalable())
             make.width.equalToSuperview().multipliedBy(Settings.contentWidthMultiplier)
         }
         
         contentContainer.addSubview(songsTitle)
         songsTitle.snp.makeConstraints { make in
-            make.top.greaterThanOrEqualTo(timerView.snp.bottom).offset(8.scalable())
+            make.top.equalTo(timerView.snp.bottom).offset(8.scalable())
             make.centerX.equalToSuperview()
             make.width.equalToSuperview().multipliedBy(Settings.contentWidthMultiplier)
         }
         
         contentContainer.addSubview(activateOfferButton)
         activateOfferButton.snp.makeConstraints { make in
-            make.top.greaterThanOrEqualTo(songsTitle.snp.bottom).offset(8.scalable())
+            make.top.equalTo(songsTitle.snp.bottom).offset(8.scalable())
             make.centerX.equalToSuperview()
             make.height.equalTo(30.scalable())
             make.width.equalToSuperview().multipliedBy(Settings.contentWidthMultiplier)
@@ -149,7 +148,7 @@ final class MainView: UIView {
         contentContainer.addSubview(systemButtonsStack)
         systemButtonsStack.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.greaterThanOrEqualTo(activateOfferButton.snp.bottom).offset(8.scalable())
+            make.top.equalTo(activateOfferButton.snp.bottom).offset(8.scalable())
             make.width.equalToSuperview().multipliedBy(Settings.contentWidthMultiplier/2)
         }
     }
