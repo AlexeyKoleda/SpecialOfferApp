@@ -4,15 +4,15 @@ final class TimerViewController: UIViewController {
 
     private let customView = TimerView()
     override func loadView() { self.view = customView }
-    
+
     var timer: Timer = Timer()
     var seconds: Int = 86400
     var timerCounting: Bool = false
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         customView.setupView()
-        
+
         timerCounting = true
         timer = Timer.scheduledTimer(
             timeInterval: 1,
@@ -30,19 +30,20 @@ final class TimerViewController: UIViewController {
             timer.invalidate()
             seconds = 0
         }
-        
+
         updateTimer(seconds: seconds)
     }
-    
-    func getCountdown(for: Int) -> (days: Int, hours: Int, minutes: Int, seconds: Int) {
-        return (
-            ((seconds / 3600) / 24),
-            (seconds / 3600),
-            ((seconds % 3600) / 60),
-            ((seconds % 3600) % 60)
+
+    func getCountdown(for: Int) -> RemainingTime {
+        let remainingTime = RemainingTime(
+            days: "\((seconds / 3600) / 24)",
+            hours: "\(seconds / 3600)",
+            minutes: "\((seconds % 3600) / 60)",
+            seconds: "\((seconds % 3600) % 60)"
         )
+        return remainingTime
     }
-    
+
     func getCurrentCountdown() -> RemainingTime {
         let remainingTime = RemainingTime(
             days: customView.days.label.text ?? String(),
@@ -52,7 +53,7 @@ final class TimerViewController: UIViewController {
         )
         return remainingTime
     }
-    
+
     private func changeValueWithAnimationIfNedeed(label: UILabel, newValue: String) {
         if label.text != newValue {
             label.pushOutTransition(0.3)
@@ -60,26 +61,35 @@ final class TimerViewController: UIViewController {
             label.pushInTransition(0.3)
         }
     }
-    
+
     private func updateTimer(seconds: Int) {
         let time = getCountdown(for: seconds)
-        
-        let secondsString = String(format: "%02d", time.seconds)
-        let minutesString = String(format: "%02d", time.minutes)
-        let hoursString = String(format: "%02d", time.hours)
-        let daysString = String(format: "%02d", time.days)
-        
-        changeValueWithAnimationIfNedeed(label: customView.seconds.label, newValue: secondsString)
-        changeValueWithAnimationIfNedeed(label: customView.minutes.label, newValue: minutesString)
-        changeValueWithAnimationIfNedeed(label: customView.hours.label, newValue: hoursString)
-        changeValueWithAnimationIfNedeed(label: customView.days.label, newValue: daysString)
+
+        changeValueWithAnimationIfNedeed(label: customView.seconds.label, newValue: time.seconds)
+        changeValueWithAnimationIfNedeed(label: customView.minutes.label, newValue: time.minutes)
+        changeValueWithAnimationIfNedeed(label: customView.hours.label, newValue: time.hours)
+        changeValueWithAnimationIfNedeed(label: customView.days.label, newValue: time.days)
     }
-    
+
     private func setupNotification() {
-        NotificationCenter.default.addObserver(self, selector: #selector(didEnterBackground), name: UIScene.didActivateNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIScene.willDeactivateNotification, object: nil)
+        NotificationCenter
+            .default
+            .addObserver(
+                self,
+                selector: #selector(didEnterBackground),
+                name: UIScene.didActivateNotification,
+                object: nil
+            )
+        NotificationCenter
+            .default
+            .addObserver(
+                self,
+                selector: #selector(willEnterForeground),
+                name: UIScene.willDeactivateNotification,
+                object: nil
+            )
     }
-    
+
     @objc private func didEnterBackground(notification: NSNotification) {
         timer = Timer.scheduledTimer(timeInterval: 1,
                                      target: self,
@@ -87,7 +97,7 @@ final class TimerViewController: UIViewController {
                                      userInfo: nil,
                                      repeats: true)
     }
-    
+
     @objc private func willEnterForeground(notification: NSNotification) {
         timer.invalidate()
     }

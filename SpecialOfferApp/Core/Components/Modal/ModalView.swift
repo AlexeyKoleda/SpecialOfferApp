@@ -2,20 +2,20 @@ import UIKit
 import SnapKit
 
 final class ModalView: UIView {
-    
+
     struct Settings {
         static let titleText = "Great!"
         static let messageText = "Offer activated at "
         static let backgroungAlpha: CGFloat = 0.6
     }
-    
+
     let contentContainer: UIView = {
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor.black
         backgroundView.alpha = 0
         return backgroundView
     }()
-    
+
    let modalView: UIView = {
         let modal = UIView()
         modal.layer.masksToBounds = true
@@ -23,7 +23,7 @@ final class ModalView: UIView {
         modal.backgroundColor = UIColor(red: 0/250, green: 0/250, blue: 80/250, alpha: 1.0)
         return modal
     }()
-    
+
     let titleLabel: UILabel = {
         let label = UILabel()
         label.text = Settings.titleText
@@ -38,7 +38,7 @@ final class ModalView: UIView {
         )
         return label
     }()
-    
+
     let messageLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.white
@@ -49,32 +49,32 @@ final class ModalView: UIView {
 }
 
 extension ModalView {
-    
+
     private func setTextWithRemainingTime(_ time: String) {
         messageLabel.text = Settings.messageText + time
     }
-    
+
     func showAlert(on targetView: UIView, withTime time: String) {
         contentContainer.frame = targetView.bounds
         targetView.addSubview(contentContainer)
         self.contentContainer.alpha = Settings.backgroungAlpha
-        
+
         targetView.addSubview(modalView)
         modalView.snp.makeConstraints { make in
             make.center.equalTo(contentContainer.center)
             make.width.equalTo(160.scalable())
             make.height.equalTo(80.scalable())
         }
-        
+
         setTextWithRemainingTime(time)
         modalView.addSubviews([titleLabel, messageLabel])
-        
+
         titleLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview().multipliedBy(0.7)
             make.width.equalToSuperview()
             make.height.equalTo(25.scalable())
         }
-        
+
         messageLabel.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom)
             make.width.equalToSuperview()

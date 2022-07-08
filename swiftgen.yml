@@ -1,0 +1,21 @@
+
+input_dir: SpecialOfferApp/
+output_dir: SpecialOfferApp/Source/Generated/
+
+xcassets:
+
+  - inputs: Source/Assets.xcassets
+    outputs:
+        templateName: swift5
+        output: Assets.swift
+        params:
+            enumName: Assets
+    
+  - inputs: Source/Colors.xcassets
+    outputs:
+        templateName: swift5
+        output: Colors.swift
+        params:
+          enumName: Colors
+
+

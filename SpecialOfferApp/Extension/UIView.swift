@@ -36,17 +36,22 @@ extension UIView {
     }
 }
 
-//MARK: - Animations -
+// MARK: - Animations -
 extension UIView {
     func pushOutTransition(_ duration: CFTimeInterval) {
         transition(duration, function: .easeOut, type: .push, subtype: .fromBottom)
     }
-    
+
     func pushInTransition(_ duration: CFTimeInterval) {
         transition(duration, function: .easeIn, type: .push, subtype: .fromTop)
     }
-    
-    private func transition(_ duration: CFTimeInterval, function: CAMediaTimingFunctionName = .linear, type: CATransitionType = .push, subtype: CATransitionSubtype = .fromBottom) {
+
+    private func transition(
+        _ duration: CFTimeInterval,
+        function: CAMediaTimingFunctionName = .linear,
+        type: CATransitionType = .push,
+        subtype: CATransitionSubtype = .fromBottom
+    ) {
         let animation: CATransition = CATransition()
         animation.timingFunction = CAMediaTimingFunction(name: function)
         animation.type = type
