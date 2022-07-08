@@ -15,10 +15,7 @@ final class MainViewController: UIViewController {
         
         customView.activateOfferButton.addTarget(self, action: #selector(activateButtonTapped), for: .touchUpInside)
         
-        customView.didTapActivateButton = { [weak self] countdown in
-            guard let self = self else { return }
-            self.modalVC.showAlert(model: countdown, on: self)
-        }
+        activateOfferAction()
     }
     
     private func addChildrenVC() {
@@ -31,6 +28,13 @@ final class MainViewController: UIViewController {
         customView.didTapActivateButton?(timerVC.getCurrentCountdown())
         timerVC.timer.invalidate()
         NotificationCenter.default.removeObserver(self)
+    }
+    
+    private func activateOfferAction() {
+        customView.didTapActivateButton = { [weak self] countdown in
+            guard let self = self else { return }
+            self.modalVC.showAlert(model: countdown, on: self)
+        }
     }
 }
 
