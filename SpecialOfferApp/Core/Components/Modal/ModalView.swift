@@ -3,20 +3,20 @@ import SnapKit
 
 final class ModalView: UIView {
 
-    struct Settings {
+    private struct Constants {
         static let titleText = "Great!"
         static let messageText = "Offer activated at "
         static let backgroungAlpha: CGFloat = 0.6
     }
 
-    let contentContainer: UIView = {
+    private let contentContainer: UIView = {
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor.black
         backgroundView.alpha = 0
         return backgroundView
     }()
 
-   let modalView: UIView = {
+    private let modalView: UIView = {
         let modal = UIView()
         modal.layer.masksToBounds = true
         modal.layer.cornerRadius = 12
@@ -24,9 +24,9 @@ final class ModalView: UIView {
         return modal
     }()
 
-    let titleLabel: UILabel = {
+    private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = Settings.titleText
+        label.text = Constants.titleText
         label.textColor = UIColor.white
         label.font = .systemFont(ofSize: 25.scalable(), weight: UIFont.Weight.bold)
         label.textAlignment = .center
@@ -39,7 +39,7 @@ final class ModalView: UIView {
         return label
     }()
 
-    let messageLabel: UILabel = {
+    private let messageLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.white
         label.font = .systemFont(ofSize: 10.scalable(), weight: UIFont.Weight.regular)
@@ -51,13 +51,13 @@ final class ModalView: UIView {
 extension ModalView {
 
     private func setTextWithRemainingTime(_ time: String) {
-        messageLabel.text = Settings.messageText + time
+        messageLabel.text = Constants.messageText + time
     }
 
     func showAlert(on targetView: UIView, withTime time: String) {
         contentContainer.frame = targetView.bounds
         targetView.addSubview(contentContainer)
-        self.contentContainer.alpha = Settings.backgroungAlpha
+        contentContainer.alpha = Constants.backgroungAlpha
 
         targetView.addSubview(modalView)
         modalView.snp.makeConstraints { make in

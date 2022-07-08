@@ -19,11 +19,11 @@ final class TimerView: UIView {
         .makeTimerSegment("", font: .systemFont(ofSize: 10.scalable(), weight: .semibold))
     let seconds: TimerSegment =
         .makeTimerSegment("", font: .systemFont(ofSize: 10.scalable(), weight: .semibold))
-    let firstDivider: UILabel =
+    private  let firstDivider: UILabel =
         .makeTimerDivider(font: .systemFont(ofSize: 10.scalable(), weight: .semibold))
-    let secondDivider: UILabel =
+    private let secondDivider: UILabel =
         .makeTimerDivider(font: .systemFont(ofSize: 10.scalable(), weight: .semibold))
-    let thirdDivider: UILabel =
+    private let thirdDivider: UILabel =
         .makeTimerDivider(font: .systemFont(ofSize: 10.scalable(), weight: .semibold))
 
     private lazy var stackView: UIStackView = .makeStackView(

@@ -5,9 +5,9 @@ final class TimerViewController: UIViewController {
     private let customView = TimerView()
     override func loadView() { self.view = customView }
 
-    var timer: Timer = Timer()
-    var seconds: Int = 86400
-    var timerCounting: Bool = false
+    private(set) var timer: Timer = Timer()
+    private var seconds: Int = 86400
+    private var timerCounting: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +34,7 @@ final class TimerViewController: UIViewController {
         updateTimer(seconds: seconds)
     }
 
-    func getCountdown(for: Int) -> RemainingTime {
+    private func getCountdown(for: Int) -> RemainingTime {
         let remainingTime = RemainingTime(
             days: "\((seconds / 3600) / 24)",
             hours: "\(seconds / 3600)",

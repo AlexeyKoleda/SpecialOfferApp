@@ -13,7 +13,11 @@ final class MainViewController: UIViewController {
         customView.setupView()
         addChildrenVC()
 
-        customView.activateOfferButton.addTarget(self, action: #selector(activateButtonTapped), for: .touchUpInside)
+        customView.activateOfferButton.addTarget(
+            self,
+            action: #selector(activateButtonTapped),
+            for: .touchUpInside
+        )
 
         activateOfferAction()
     }

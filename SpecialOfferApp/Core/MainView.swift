@@ -3,7 +3,7 @@ import SnapKit
 
 final class MainView: UIView {
 
-    private struct Settings {
+    private struct Constants {
         static let firstTitle = "LAST-MINUTE CHANCE!"
         static let secondTitle = "to claim you offer"
         static let discountTitle = "90% OFF"
@@ -21,7 +21,7 @@ final class MainView: UIView {
 
     var didTapActivateButton: ((RemainingTime) -> Void)?
 
-    private lazy var backgroundImage: UIImageView = {
+    private let backgroundImage: UIImageView = {
         let backgroundImage = UIImageView()
         backgroundImage.contentMode = .scaleAspectFit
         backgroundImage.image = Assets.music.image
@@ -36,18 +36,18 @@ final class MainView: UIView {
     }()
 
     // MARK: - LABELS -
-    private var firstTitle: UILabel =
-        .makeLabel(Settings.firstTitle, font: .systemFont(ofSize: 10.scalable(), weight: .semibold))
-    private var secondTitle: UILabel =
-        .makeLabel(Settings.secondTitle, font: .systemFont(ofSize: 10.scalable(), weight: .semibold))
-    private var discountTitle: UILabel =
-        .makeLabel(Settings.discountTitle, font: .systemFont(ofSize: 25.scalable(), weight: .black))
-    private var customerTitle: UILabel =
-        .makeLabel(Settings.customerTitle, font: .systemFont(ofSize: 6.scalable(), weight: .semibold))
-    private var songsTitle: UILabel =
-        .makeLabel(Settings.songsTitle, font: .systemFont(ofSize: 6.scalable(), weight: .semibold), color: .lightGray)
-    private var xLabel: UILabel =
-        .makeLabel(Settings.xButtonTitle, font: .systemFont(ofSize: 6.scalable(), weight: .semibold), color: .gray)
+    private let firstTitle: UILabel =
+        .makeLabel(Constants.firstTitle, font: .systemFont(ofSize: 10.scalable(), weight: .semibold))
+    private let secondTitle: UILabel =
+        .makeLabel(Constants.secondTitle, font: .systemFont(ofSize: 10.scalable(), weight: .semibold))
+    private let discountTitle: UILabel =
+        .makeLabel(Constants.discountTitle, font: .systemFont(ofSize: 25.scalable(), weight: .black))
+    private let customerTitle: UILabel =
+        .makeLabel(Constants.customerTitle, font: .systemFont(ofSize: 6.scalable(), weight: .semibold))
+    private let songsTitle: UILabel =
+        .makeLabel(Constants.songsTitle, font: .systemFont(ofSize: 6.scalable(), weight: .semibold), color: .lightGray)
+    private let xLabel: UILabel =
+        .makeLabel(Constants.xButtonTitle, font: .systemFont(ofSize: 6.scalable(), weight: .semibold), color: .gray)
 
     // MARK: - TIMER -
     let timerView = UIView()
@@ -61,7 +61,7 @@ final class MainView: UIView {
             shadowOpacity: 20,
             shadowRadius: 20
         )
-        button.setTitle(Settings.activateOfferTitle, for: .normal)
+        button.setTitle(Constants.activateOfferTitle, for: .normal)
 
         button.setTitleColor(UIColor.white, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 10.scalable(), weight: .semibold)
@@ -70,12 +70,12 @@ final class MainView: UIView {
     }()
 
     // MARK: - SYSTEM BUTTONS -
-    private var privacyButton: UIButton =
-        .makeSystemBytton(Settings.privacyTitle, font: .systemFont(ofSize: 5.scalable(), weight: .regular))
-    private var restoreButton: UIButton =
-        .makeSystemBytton(Settings.restoreTitle, font: .systemFont(ofSize: 5.scalable(), weight: .regular))
-    private var termsButton: UIButton =
-        .makeSystemBytton(Settings.termsTitle, font: .systemFont(ofSize: 5.scalable(), weight: .regular))
+    private let privacyButton: UIButton =
+        .makeSystemBytton(Constants.privacyTitle, font: .systemFont(ofSize: 5.scalable(), weight: .regular))
+    private let restoreButton: UIButton =
+        .makeSystemBytton(Constants.restoreTitle, font: .systemFont(ofSize: 5.scalable(), weight: .regular))
+    private let termsButton: UIButton =
+        .makeSystemBytton(Constants.termsTitle, font: .systemFont(ofSize: 5.scalable(), weight: .regular))
     private lazy var systemButtonsStack: UIStackView =
         .makeStackView([privacyButton, restoreButton, termsButton], spacing: 5, axis: .horizontal)
 
@@ -87,7 +87,7 @@ final class MainView: UIView {
     }
 
     private func setupHierarchy() {
-        self.addSubviews([backgroundImage, contentContainer])
+        addSubviews([backgroundImage, contentContainer])
         contentContainer.addSubviews(
             [
                 firstTitle,
@@ -106,7 +106,7 @@ final class MainView: UIView {
     private func setupBackgroundConstraints() {
         backgroundImage.snp.makeConstraints { make in
             make.top.bottom.leading.equalToSuperview()
-            make.width.equalToSuperview().multipliedBy(Settings.halfMultiplier)
+            make.width.equalToSuperview().multipliedBy(Constants.halfMultiplier)
         }
 
         xLabel.snp.makeConstraints { make in
@@ -118,30 +118,30 @@ final class MainView: UIView {
     private func setupContentConstraints() {
         contentContainer.snp.makeConstraints { make in
             make.top.bottom.trailing.equalToSuperview()
-            make.width.equalToSuperview().multipliedBy(Settings.halfMultiplier)
+            make.width.equalToSuperview().multipliedBy(Constants.halfMultiplier)
         }
 
         firstTitle.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.width.equalToSuperview().multipliedBy(Settings.contentWidthMultiplier)
+            make.width.equalToSuperview().multipliedBy(Constants.contentWidthMultiplier)
         }
 
         secondTitle.snp.makeConstraints { make in
             make.top.equalTo(firstTitle.snp.bottom)
             make.centerX.equalToSuperview()
-            make.width.equalToSuperview().multipliedBy(Settings.contentWidthMultiplier)
+            make.width.equalToSuperview().multipliedBy(Constants.contentWidthMultiplier)
         }
 
         discountTitle.snp.makeConstraints { make in
             make.top.equalTo(secondTitle.snp.bottom).offset(5.scalable())
             make.centerX.equalToSuperview()
-            make.width.equalToSuperview().multipliedBy(Settings.contentWidthMultiplier)
+            make.width.equalToSuperview().multipliedBy(Constants.contentWidthMultiplier)
         }
 
         customerTitle.snp.makeConstraints { make in
             make.top.equalTo(discountTitle.snp.bottom).offset(4.scalable())
             make.centerX.equalToSuperview()
-            make.width.equalToSuperview().multipliedBy(Settings.contentWidthMultiplier)
+            make.width.equalToSuperview().multipliedBy(Constants.contentWidthMultiplier)
         }
 
         timerView.snp.makeConstraints { make in
@@ -149,26 +149,26 @@ final class MainView: UIView {
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
             make.height.equalTo(15.scalable())
-            make.width.equalToSuperview().multipliedBy(Settings.contentWidthMultiplier)
+            make.width.equalToSuperview().multipliedBy(Constants.contentWidthMultiplier)
         }
 
         songsTitle.snp.makeConstraints { make in
             make.top.equalTo(timerView.snp.bottom).offset(8.scalable())
             make.centerX.equalToSuperview()
-            make.width.equalToSuperview().multipliedBy(Settings.contentWidthMultiplier)
+            make.width.equalToSuperview().multipliedBy(Constants.contentWidthMultiplier)
         }
 
         activateOfferButton.snp.makeConstraints { make in
             make.top.equalTo(songsTitle.snp.bottom).offset(8.scalable())
             make.centerX.equalToSuperview()
             make.height.equalTo(30.scalable())
-            make.width.equalToSuperview().multipliedBy(Settings.contentWidthMultiplier)
+            make.width.equalToSuperview().multipliedBy(Constants.contentWidthMultiplier)
         }
 
         systemButtonsStack.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(activateOfferButton.snp.bottom).offset(8.scalable())
-            make.width.equalToSuperview().multipliedBy(Settings.contentWidthMultiplier/2)
+            make.width.equalToSuperview().multipliedBy(Constants.contentWidthMultiplier/2)
         }
     }
 }

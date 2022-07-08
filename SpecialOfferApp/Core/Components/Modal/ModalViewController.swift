@@ -13,7 +13,9 @@ final class ModalViewController: UIViewController {
         guard let targetView = viewController.view else { return }
         customView.showAlert(on: targetView, withTime: createCorrectFormat(with: model))
     }
+}
 
+private extension ModalViewController {
     /// Method remove empty (00) time segments from result string
     private func createCorrectFormat(with model: RemainingTime) -> String {
         var days = "\(model.days):"
@@ -33,5 +35,4 @@ final class ModalViewController: UIViewController {
         }
         return days + hours + minutes + seconds
     }
-
 }

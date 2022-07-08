@@ -5,7 +5,19 @@ final class TimerSegment: UIView {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.addSubview(label)
-        self.addChildSubviewByPinningEdges(label)
+    }
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        addChildView()
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    private func addChildView() {
+        addSubview(label)
+        addChildSubviewByPinningEdges(label)
     }
 }
